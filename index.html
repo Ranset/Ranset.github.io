@@ -1,8 +1,89 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hola Github</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<p>Y la actualizo ahora.</p>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MXNtoCUP</title>
+    <meta name="theme-color" content="#20c997">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/IconMXN16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/IconMXN32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/IconMXN192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/IconMXN512.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body onload="actualizar()">
+    <div class="container">
+        <div class="row" style="margin: 10px;margin-top: 20px;margin-bottom: 0px;">
+            <div class="col">
+                <p class="text-uppercase" style="font-weight: bold;font-size: 24px;">Generador de precios en CUP</p>
+            </div>
+            <div class="col-3 text-end" style="padding: 0px;padding-right: 6px;"><img class="img-fluid" id="btnConfig" src="assets/img/icons8_settings_50px_1.png" style="width: 40px;cursor: pointer;"></div>
+        </div>
+        <div class="row">
+            <div class="col" style="padding-top: 0px;">
+                <div id="card" style="margin-top: -15px;">
+                    <!-- Start: Front side -->
+                    <div class="front" style="background: var(--bs-teal);border-radius: 23px;margin: 10px;padding: 14px;">
+                        <!-- Start: Form -->
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-1 offset-0 d-grid" style="max-width: 336px;width: 247px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Costo del producto en MXN</label><input class="shadow-none form-control-sm" type="number" id="inputMXN" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-teal);" placeholder="MXN"></div>
+                        </div><!-- End: Form -->
+                        <div class="row text-center" style="margin-top: 23px;">
+                            <div class="col"><button class="btn btn-primary" id="btnCalcular" type="button" style="color: var(--bs-dark);background: var(--bs-gray-500);">Calcular</button></div>
+                        </div>
+                        <div class="row" style="margin-top: 13px;">
+                            <div class="col">
+                                <p class="text-center" style="font-size: 19px;"><span>Equivale a $</span><span id="mxnToUsd">0</span><span>&nbsp;USD</span></p>
+                            </div>
+                        </div>
+                        <div style="background: var(--bs-light);height: 3px;"></div>
+                        <div class="row" style="margin-top: 17px;">
+                            <div class="col text-center" style="color: var(--bs-light);">
+                                <p>PRECIO PARA LA VENTA</p>
+                                <p class="text-truncate" style="font-size: 35px;"><strong id="usd">$0</strong><span>&nbsp;USD</span></p>
+                                <p class="text-truncate" style="font-size: 35px;"><strong id="cup">$0</strong><span>&nbsp;CUP</span></p>
+                            </div>
+                        </div>
+                    </div><!-- End: Front side -->
+                    <!-- Start: Back side -->
+                    <div class="back" style="background: var(--bs-info);border-radius: 23px;margin: 10px;padding: 14px;">
+                        <div class="row" style="margin-top: 13px;">
+                            <div class="col-12">
+                                <p class="text-center" style="font-weight: bold;font-size: 33px;">CONFIGURACIÓN</p>
+                            </div>
+                        </div>
+                        <div class="row row-cols-2 justify-content-center" style="margin-bottom: 14px;">
+                            <div class="col-sm-5 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Cambio USD a MXN</label><input class="shadow-none form-control-sm" type="number" id="inUsdMxn" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="19.20"></div>
+                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Cambio USD a CUP</label><input class="shadow-none form-control-sm" type="number" id="inUsdCup" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="100"></div>
+                        </div>
+                        <div class="row row-cols-2 justify-content-center">
+                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Tasa de ganancia</label><input class="shadow-none form-control-sm" type="number" id="inTasa" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="2.0"></div>
+                        </div>
+                        <div class="row text-center" style="margin-top: 101px;">
+                            <div class="col"><button class="btn btn-primary" id="btnGuardar" type="button" style="color: var(--bs-dark);background: var(--bs-gray-500);">Guardar</button></div>
+                        </div>
+                    </div><!-- End: Back side -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center text-secondary">
+                <p style="margin: 0px;margin-top: 25px;">El cambio de USD a MXN es de&nbsp;<span id="infoCambio">$0</span></p>
+                <p>Con una tasa de ganancia de&nbsp;<span id="infoTasa">0</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/calculo.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery.flip.min.js"></script>
+    <script src="assets/js/flip.js"></script>
 </body>
+
 </html>
