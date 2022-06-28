@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=4079b69feebfc2516a0291793e775975">
     <link rel="manifest" href="manifest.json?h=c89f832ae4877b857281c3f8e0cedc9b">
     <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
+<script type="module">
+   import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+   const el = document.createElement('pwa-update');
+   document.body.appendChild(el);
+</script>
 </head>
 
 <body onload="actualizar()">
