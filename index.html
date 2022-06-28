@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>MXNtoCUP</title>
     <meta name="theme-color" content="#20c997">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/IconMXN16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/IconMXN32.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/IconMXN192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/IconMXN512.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png?h=7d818dbe64c88aacc15f81671aee7992">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/IconMXN16.png?h=331b98d8fb9ee65ddf52b803fa389141">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/IconMXN32.png?h=36991df5f77c3b2b7c450b42df690324">
+    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/IconMXN180.png?h=7d818dbe64c88aacc15f81671aee7992">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/IconMXN192.png?h=66650150900658ba731390958e422f0b">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/IconMXN512.png?h=2461c4c4da7ba107bc1a670c766275ca">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=4079b69feebfc2516a0291793e775975">
+    <link rel="manifest" href="manifest.json?h=c89f832ae4877b857281c3f8e0cedc9b">
+    <link rel="stylesheet" href="assets/css/styles.css?h=d41d8cd98f00b204e9800998ecf8427e">
 </head>
 
 <body onload="actualizar()">
@@ -23,7 +23,7 @@
             <div class="col">
                 <p class="text-uppercase" style="font-weight: bold;font-size: 24px;">Generador de precios en CUP</p>
             </div>
-            <div class="col-3 text-end" style="padding: 0px;padding-right: 6px;"><img class="img-fluid" id="btnConfig" src="assets/img/icons8_settings_50px_1.png" style="width: 40px;cursor: pointer;"></div>
+            <div class="col-3 text-end" style="padding: 0px;padding-right: 6px;"><img class="img-fluid" id="btnConfig" src="assets/img/icons8_settings_50px_1.png?h=63f9676c336302e366beaf6b703ba75f" style="width: 40px;cursor: pointer;"></div>
         </div>
         <div class="row">
             <div class="col" style="padding-top: 0px;">
@@ -60,10 +60,10 @@
                         </div>
                         <div class="row row-cols-2 justify-content-center" style="margin-bottom: 14px;">
                             <div class="col-sm-5 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Cambio USD a MXN</label><input class="shadow-none form-control-sm" type="number" id="inUsdMxn" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="19.20"></div>
-                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Cambio USD a CUP</label><input class="shadow-none form-control-sm" type="number" id="inUsdCup" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="100"></div>
+                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Cambio USD a CUP</label><input class="shadow-none form-control-sm" type="number" id="inUsdCup" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a CUP" value="100"></div>
                         </div>
                         <div class="row row-cols-2 justify-content-center">
-                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Tasa de ganancia</label><input class="shadow-none form-control-sm" type="number" id="inTasa" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="USD a MXN" value="2.0"></div>
+                            <div class="col-sm-5 offset-sm-0 d-grid" style="max-width: 336px;"><label class="form-label" style="font-size: 14px;margin-bottom: -1px;">Tasa de ganancia</label><input class="shadow-none form-control-sm" type="number" id="inTasa" style="height: 0px;width: 100%;text-align: right;font-size: 25px;background: var(--bs-body-bg);" placeholder="Tasa" value="2.0"></div>
                         </div>
                         <div class="row text-center" style="margin-top: 101px;">
                             <div class="col"><button class="btn btn-primary" id="btnGuardar" type="button" style="color: var(--bs-dark);background: var(--bs-gray-500);">Guardar</button></div>
@@ -80,13 +80,13 @@
         </div>
     </div>
     <footer class="text-center" style="position: absolute;bottom: 0;width: 100%;background-color: white;">
-        <p>RANOLI - v1.0.1</p>
+        <p>RANOLI - v1.2</p>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/calculo.js"></script>
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/jquery.flip.min.js"></script>
-    <script src="assets/js/flip.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=5488c86a1260428f0c13c0f8fb06bf6a"></script>
+    <script src="assets/js/calculo.js?h=b2b4159850f02b9122d4540383829aec"></script>
+    <script src="assets/js/jquery-3.6.0.min.js?h=8fb8fee4fcc3cc86ff6c724154c49c42"></script>
+    <script src="assets/js/jquery.flip.min.js?h=f7a2f35783e56b0f5e74a8ffe8a510da"></script>
+    <script src="assets/js/flip.js?h=f6a64525d60ae2ec1e4d5de5e09b92b0"></script>
 </body>
 
 </html>
