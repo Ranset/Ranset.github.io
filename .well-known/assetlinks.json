@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "io.github.ranset.twa",
+                     "sha256_cert_fingerprints": ["8C:04:3B:3F:D9:BF:D5:F9:1C:66:B1:94:EC:7C:14:6C:8D:0C:90:8B:6A:F8:70:59:73:A0:DA:CF:7C:E2:DD:F8"] }
+      }
+]
