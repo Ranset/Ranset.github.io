@@ -4,29 +4,82 @@ var tasa;
 var usdToCup;
 
 
-function suma() {
+function sumar() {
+    //Input del costo MXN en el front
 	mxn = document.getElementById('inputMXN').value;
+
+    //Cálculos
     var precioCUP = Number(mxn) / Number(dolar) * Number(tasa) * Number(usdToCup);
     var precioUSD = Number(mxn) / Number(dolar) * Number(tasa);
     var costoUSD = Number(mxn) / Number(dolar);
+
+    // Muestra Precio en CUP
     document.getElementById('cup').innerHTML = "$ " + precioCUP.toFixed(0);
+
+    // Muestra precio en USD 
     document.getElementById('usd').innerHTML = "$ " + precioUSD.toFixed(2);
+
+    // Muestra equivalente en USD
     document.getElementById('mxnToUsd').innerHTML = costoUSD.toFixed(2);
 }
 
 function guardar(){
-    actualizar();
-}
 
-document.getElementById('btnCalcular').addEventListener('click', suma);
-document.getElementById('btnGuardar').addEventListener('click', guardar);
-
-function actualizar(){
+    // Datos de los inputs en la Configuración
     dolar = document.getElementById('inUsdMxn').value;
     tasa = document.getElementById('inTasa').value;
     usdToCup = document.getElementById('inUsdCup').value;
-    document.getElementById('infoCambio').innerHTML = "$" + dolar;
-    document.getElementById('infoTasa').innerHTML = tasa;
+
+    var configData = {"dolar": dolar, "usdToCup": usdToCup, "tasa": tasa};
+
+    //Set data a localDB
+    localStorage.setItem('config', JSON.stringify(configData));
+
+    actualizar();
+}
+
+//Botones de la app
+document.getElementById('btnCalcular').addEventListener('click', sumar);
+document.getElementById('btnGuardar').addEventListener('click', guardar);
+
+function MostrarConfig(){
+    document.getElementById('infoCambio').innerHTML = "$" + dolar.toFixed(2);
+    document.getElementById('infoTasa').innerHTML = tasa.toFixed(1);
+} 
+
+function actualizar(){
+    if (!localStorage.getItem('config')){
+
+    dolar = 19.40;
+    tasa = 2.0;
+    usdToCup = 120;
+    MostrarConfig();
+    console.log("Se cargaron los datos por defecto");
+
+} else {
+
+    console.log("Datos obtenidos de DB local")
+
+    //get data
+    var obj = JSON.parse(localStorage.getItem('config'));
+
+    dolar = Number(obj.dolar);
+    tasa = Number(obj.tasa);
+    usdToCup = Number(obj.usdToCup);
+
+    MostrarConfig();
+
+    // Actualizando los campos en la ficha de Configuración (back)
+    document.getElementById('inUsdMxn').value = obj.dolar;
+    document.getElementById('inTasa').value = obj.tasa;
+    document.getElementById('inUsdCup').value = obj.usdToCup;
+
+    console.log(obj);
+
+
+    }
+
+
 }
 
 function limpiar() {
