@@ -38,9 +38,39 @@ function guardar(){
     actualizar();
 }
 
-//Botones de la app
+//Eventos click de la app
 document.getElementById('btnCalcular').addEventListener('click', sumar);
 document.getElementById('btnGuardar').addEventListener('click', guardar);
+document.getElementById('btnCUP').addEventListener('click', showPoppup);
+
+function showPoppup(){
+
+    let text;
+    let newPrecioCUP = prompt("Coloque el precio deseado en CUP:", "0.00");
+    if (newPrecioCUP == null || newPrecioCUP == "") {
+        text = "User cancelled the prompt.";
+    } else {
+        text = "Hello " + newPrecioCUP + "! How are you today?";
+      }
+
+      //calculos
+      let precioUSD = newPrecioCUP/usdToCup
+      let costoUSD = precioUSD / tasa
+      let inputMxn = costoUSD * dolar
+
+    // Muestra Precio en CUP
+    document.getElementById('cup').innerHTML = "$ " + newPrecioCUP;
+
+    // Muestra precio en USD 
+    document.getElementById('usd').innerHTML = "$ " + precioUSD.toFixed(2);
+
+    // Muestra equivalente en USD
+    document.getElementById('mxnToUsd').innerHTML = costoUSD.toFixed(2);
+
+
+    document.getElementById('inputMXN').value = inputMxn.toFixed(2);
+
+}
 
 function MostrarConfig(){
     document.getElementById('infoCambio').innerHTML = "$" + dolar.toFixed(2);
